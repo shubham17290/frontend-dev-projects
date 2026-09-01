@@ -1,0 +1,930 @@
+// ==========================================================
+// DEVFORGE — TASK 08
+// Introduction to CSS Preprocessing with Sass
+// ==========================================================
+
+// Modern Sass module
+@use "sass:map";
+
+// ==========================================================
+// 1. DESIGN TOKENS / VARIABLES
+// ==========================================================
+
+$colors: (
+  primary: #0284c7,
+  primary-dark: #0369a1,
+  primary-light: #e0f2fe,
+
+  dark: #0f172a,
+  darker: #020617,
+
+  surface: #f8fafc,
+  white: #ffffff,
+
+  text: #1e293b,
+  muted: #64748b,
+  border: #e2e8f0,
+
+  success: #16a34a,
+  danger: #dc2626,
+
+  slate-light: #f1f5f9,
+  sky: #38bdf8
+);
+
+$font-family: Arial, Helvetica, sans-serif;
+
+$mono-font: "Courier New", monospace;
+
+// Spacing system
+$space-unit: 8px;
+
+// Radius system
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 16px;
+$radius-xl: 24px;
+
+// Shadows
+$shadow-sm: 0 8px 24px rgba(15, 23, 42, 0.06);
+
+$shadow-md: 0 15px 35px rgba(15, 23, 42, 0.09);
+
+$shadow-lg: 0 20px 45px rgba(15, 23, 42, 0.16);
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-normal: 0.25s ease;
+$transition-slow: 0.4s ease;
+
+// Layout
+$navbar-height: 76px;
+$section-padding: 88px;
+
+// ==========================================================
+// 2. FUNCTIONS
+// ==========================================================
+
+// Color lookup function
+@function color($name) {
+  @return map.get($colors, $name);
+}
+
+// Spacing function
+@function space($multiplier) {
+  @return $space-unit * $multiplier;
+}
+
+// ==========================================================
+// 3. MIXINS
+// ==========================================================
+
+// Flexbox centering
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Card hover animation
+@mixin hover-lift($distance: 5px) {
+  transition:
+    transform $transition-normal,
+    box-shadow $transition-normal;
+
+  &:hover {
+    transform: translateY(-$distance);
+    box-shadow: $shadow-md;
+  }
+}
+
+// Focus accessibility
+@mixin focus-ring {
+  &:focus {
+    outline: none;
+
+    border-color: color(primary);
+
+    box-shadow: 0 0 0 0.25rem rgba(2, 132, 199, 0.15);
+  }
+}
+
+// Responsive breakpoint helper
+@mixin mobile {
+  @media (max-width: 767.98px) {
+    @content;
+  }
+}
+
+// ==========================================================
+// 4. GLOBAL RESET / BASE
+// ==========================================================
+
+html {
+  scroll-behavior: smooth;
+
+  scroll-padding-top: $navbar-height;
+}
+
+body {
+  margin: 0;
+
+  font-family: $font-family;
+
+  color: color(text);
+
+  background-color: color(surface);
+
+  line-height: 1.6;
+
+  transition: background-color $transition-slow;
+}
+
+img {
+  display: block;
+
+  max-width: 100%;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+// ==========================================================
+// 5. NAVBAR
+// ==========================================================
+
+.navbar {
+  min-height: $navbar-height;
+
+  background-color: rgba(15, 23, 42, 0.96) !important;
+
+  backdrop-filter: blur(12px);
+
+  .navbar-brand {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: space(1.5);
+
+    font-weight: 800;
+
+    letter-spacing: 0.8px;
+
+    .brand-logo {
+      @include flex-center;
+
+      width: 36px;
+
+      height: 36px;
+
+      border-radius: $radius-sm;
+
+      background-color: color(primary);
+
+      color: color(white);
+
+      font-family: $mono-font;
+
+      font-size: 13px;
+
+      font-weight: 700;
+    }
+  }
+
+  .navbar-nav {
+    gap: space(1);
+
+    .nav-link {
+      position: relative;
+
+      padding: space(1.5) space(1.5);
+
+      color: #cbd5e1;
+
+      font-size: 15px;
+
+      font-weight: 500;
+
+      transition: color $transition-fast;
+
+      &::after {
+        content: "";
+
+        position: absolute;
+
+        left: 50%;
+
+        bottom: 2px;
+
+        width: 0;
+
+        height: 2px;
+
+        background-color: color(primary);
+
+        transform: translateX(-50%);
+
+        transition: width $transition-fast;
+      }
+
+      &:hover,
+      &.active {
+        color: color(white);
+
+        &::after {
+          width: 65%;
+        }
+      }
+    }
+  }
+
+  .nav-cta {
+    margin-left: space(2);
+  }
+}
+
+// ==========================================================
+// 6. HERO SECTION
+// ==========================================================
+
+.hero {
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  padding-top: calc(#{$navbar-height} + 32px);
+
+  padding-bottom: space(10);
+
+  background-color: color(primary-light);
+
+  transition: background-color $transition-slow;
+
+  .hero__badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: space(1) space(2);
+
+    margin-bottom: space(2);
+
+    border: 1px solid rgba(2, 132, 199, 0.2);
+
+    border-radius: 999px;
+
+    background-color: rgba(255, 255, 255, 0.7);
+
+    color: color(primary-dark);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+  }
+
+  .hero__title {
+    max-width: 700px;
+
+    margin: 0;
+
+    color: color(dark);
+
+    font-size: clamp(2.7rem, 6vw, 4.8rem);
+
+    font-weight: 800;
+
+    letter-spacing: -2.5px;
+
+    line-height: 1.05;
+
+    span {
+      display: block;
+
+      color: color(primary);
+    }
+  }
+
+  .hero__description {
+    max-width: 650px;
+
+    margin-top: space(3);
+
+    color: color(muted);
+
+    font-size: clamp(1rem, 2vw, 1.15rem);
+  }
+
+  .hero__actions {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: space(2);
+
+    margin-top: space(4);
+  }
+
+  .hero__stats {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: space(5);
+
+    margin-top: space(5);
+
+    .hero-stat {
+      display: flex;
+
+      flex-direction: column;
+
+      strong {
+        color: color(dark);
+
+        font-size: 20px;
+
+        font-weight: 800;
+      }
+
+      span {
+        color: color(muted);
+
+        font-size: 13px;
+      }
+    }
+  }
+
+  .hero__visual {
+    position: relative;
+
+    img {
+      width: 100%;
+
+      min-height: 430px;
+
+      object-fit: cover;
+
+      border-radius: $radius-xl;
+
+      box-shadow: $shadow-lg;
+    }
+
+    .code-badge {
+      position: absolute;
+
+      left: space(3);
+
+      bottom: space(3);
+
+      display: flex;
+
+      align-items: center;
+
+      gap: space(1.5);
+
+      padding: space(1.5) space(2);
+
+      border: 1px solid rgba(255, 255, 255, 0.12);
+
+      border-radius: $radius-sm;
+
+      background-color: rgba(15, 23, 42, 0.95);
+
+      color: color(white);
+
+      font-family: $mono-font;
+
+      font-size: 13px;
+
+      box-shadow: $shadow-md;
+
+      span {
+        color: color(sky);
+
+        font-weight: 700;
+      }
+
+      code {
+        color: #e2e8f0;
+      }
+    }
+  }
+}
+
+// ==========================================================
+// 7. REUSABLE SECTION COMPONENT
+// ==========================================================
+
+.section {
+  padding-top: $section-padding;
+
+  padding-bottom: $section-padding;
+}
+
+.section-heading {
+  max-width: 800px;
+
+  margin-bottom: space(5);
+
+  &__label {
+    display: inline-block;
+
+    margin-bottom: space(1.5);
+
+    color: color(primary);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+  }
+
+  &__title {
+    margin: 0 0 space(2);
+
+    color: color(dark);
+
+    font-size: clamp(2rem, 4vw, 2.8rem);
+
+    font-weight: 800;
+
+    line-height: 1.15;
+  }
+
+  &__description {
+    margin: 0;
+
+    color: color(muted);
+
+    font-size: 1.05rem;
+  }
+
+  &--center {
+    margin-right: auto;
+
+    margin-left: auto;
+
+    text-align: center;
+  }
+}
+
+// ==========================================================
+// 8. ABOUT / FEATURE CARDS
+// ==========================================================
+
+.about {
+  background-color: color(white);
+
+  .feature-card {
+    height: 100%;
+
+    border: 1px solid color(border) !important;
+
+    border-radius: $radius-md;
+
+    background-color: color(white);
+
+    @include hover-lift(6px);
+
+    .card-body {
+      padding: space(4);
+    }
+
+    &__icon {
+      @include flex-center;
+
+      width: 54px;
+
+      height: 54px;
+
+      margin-bottom: space(3);
+
+      border-radius: $radius-sm;
+
+      background-color: color(primary-light);
+
+      color: color(primary);
+
+      font-size: 23px;
+    }
+
+    &__title {
+      margin-bottom: space(1.5);
+
+      color: color(dark);
+
+      font-size: 20px;
+
+      font-weight: 700;
+    }
+
+    &__text {
+      margin: 0;
+
+      color: color(muted);
+    }
+  }
+}
+
+// ==========================================================
+// 9. RESOURCES
+// ==========================================================
+
+.resources {
+  background-color: color(surface);
+
+  #apiStatus {
+    margin-bottom: space(4);
+
+    border: 0;
+
+    border-left: 4px solid color(primary);
+
+    border-radius: $radius-sm;
+
+    box-shadow: $shadow-sm;
+  }
+
+  .resource-card {
+    height: 100%;
+
+    overflow: hidden;
+
+    border: 1px solid color(border);
+
+    border-radius: $radius-md;
+
+    background-color: color(white);
+
+    @include hover-lift(5px);
+
+    .card-body {
+      padding: space(4);
+    }
+
+    .resource-number {
+      margin-bottom: space(1);
+
+      color: color(primary);
+
+      font-size: 11px;
+
+      font-weight: 800;
+
+      letter-spacing: 1.5px;
+    }
+
+    .resource-title {
+      margin-bottom: space(2);
+
+      color: color(dark);
+
+      font-size: 19px;
+
+      font-weight: 700;
+
+      line-height: 1.3;
+    }
+
+    .resource-body {
+      margin: 0;
+
+      color: color(muted);
+
+      font-size: 15px;
+    }
+  }
+
+  .resources-actions {
+    margin-top: space(5);
+  }
+}
+
+// ==========================================================
+// 10. INTERACTION SECTION
+// ==========================================================
+
+.interaction {
+  background-color: color(slate-light);
+
+  text-align: center;
+
+  .interaction-message {
+    min-height: 24px;
+
+    margin-top: space(2);
+
+    margin-bottom: 0;
+
+    color: color(primary);
+
+    font-weight: 600;
+  }
+}
+
+// ==========================================================
+// 11. CONTACT SECTION
+// ==========================================================
+
+.contact {
+  background-color: color(white);
+
+  .contact-info {
+    margin-top: space(4);
+
+    .contact-item {
+      display: flex;
+
+      align-items: flex-start;
+
+      gap: space(2.5);
+
+      margin-bottom: space(3.5);
+
+      .contact-icon {
+        @include flex-center;
+
+        flex-shrink: 0;
+
+        width: 46px;
+
+        height: 46px;
+
+        border-radius: $radius-sm;
+
+        background-color: color(primary-light);
+
+        color: color(primary);
+      }
+
+      h3 {
+        margin: 0 0 space(0.5);
+
+        color: color(dark);
+
+        font-size: 16px;
+
+        font-weight: 700;
+      }
+
+      p {
+        margin: 0;
+
+        color: color(muted);
+      }
+    }
+  }
+
+  .form-card {
+    border: 1px solid color(border) !important;
+
+    border-radius: $radius-md;
+
+    background-color: color(surface);
+
+    box-shadow: $shadow-md;
+
+    .card-body {
+      padding: space(5);
+    }
+
+    .form-label {
+      color: color(text);
+
+      font-weight: 600;
+    }
+
+    .form-control {
+      min-height: 50px;
+
+      border-color: #cbd5e1;
+
+      border-radius: $radius-sm;
+
+      background-color: color(white);
+
+      transition:
+        border-color $transition-fast,
+        box-shadow $transition-fast;
+
+      @include focus-ring;
+
+      &.is-invalid {
+        border-color: color(danger);
+      }
+
+      &.is-valid {
+        border-color: color(success);
+      }
+    }
+
+    textarea.form-control {
+      min-height: 150px;
+
+      resize: vertical;
+    }
+  }
+}
+
+// ==========================================================
+// 12. VISION / CTA
+// ==========================================================
+
+.vision {
+  background-color: color(dark);
+
+  .section-heading {
+    &__label {
+      color: color(sky);
+    }
+
+    &__title {
+      color: color(white);
+    }
+
+    &__description {
+      color: rgba(255, 255, 255, 0.65);
+    }
+  }
+}
+
+// ==========================================================
+// 13. FOOTER
+// ==========================================================
+
+.footer {
+  padding: space(3) 0;
+
+  background-color: color(darker);
+
+  &__content {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: space(2);
+  }
+
+  &__copyright {
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 14px;
+  }
+}
+
+// ==========================================================
+// 14. BOOTSTRAP BUTTON OVERRIDES
+// ==========================================================
+
+.btn-primary {
+  --bs-btn-bg: #{color(primary)};
+
+  --bs-btn-border-color: #{color(primary)};
+
+  --bs-btn-hover-bg: #{color(primary-dark)};
+
+  --bs-btn-hover-border-color: #{color(primary-dark)};
+
+  --bs-btn-active-bg: #{color(primary-dark)};
+
+  --bs-btn-active-border-color: #{color(primary-dark)};
+
+  transition:
+    transform $transition-fast,
+    box-shadow $transition-fast;
+
+  &:hover {
+    transform: translateY(-1px);
+
+    box-shadow: 0 8px 18px rgba(2, 132, 199, 0.22);
+  }
+}
+
+// ==========================================================
+// 15. RESPONSIVE DESIGN
+// ==========================================================
+
+@media (max-width: 991.98px) {
+  .navbar {
+    .navbar-nav {
+      padding-top: space(2);
+
+      padding-bottom: space(2);
+    }
+
+    .nav-cta {
+      display: inline-block;
+
+      margin-top: space(1);
+
+      margin-left: 0;
+    }
+  }
+
+  .hero {
+    min-height: auto;
+
+    padding-top: 120px;
+
+    .hero__visual {
+      margin-top: space(3);
+    }
+  }
+}
+
+@include mobile {
+  .section {
+    padding-top: space(8);
+
+    padding-bottom: space(8);
+  }
+
+  .hero {
+    padding-top: 110px;
+
+    .hero__title {
+      font-size: 2.6rem;
+
+      letter-spacing: -1.5px;
+    }
+
+    .hero__actions {
+      flex-direction: column;
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    .hero__stats {
+      gap: space(3);
+    }
+
+    .hero__visual {
+      img {
+        min-height: 300px;
+      }
+
+      .code-badge {
+        left: space(2);
+
+        bottom: space(2);
+
+        font-size: 11px;
+      }
+    }
+  }
+
+  .contact {
+    .form-card {
+      .card-body {
+        padding: space(3);
+      }
+    }
+  }
+
+  .footer {
+    &__content {
+      flex-direction: column;
+
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero {
+    .hero__title {
+      font-size: 2.25rem;
+    }
+
+    .hero__stats {
+      display: grid;
+
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .section-heading {
+    &__title {
+      font-size: 2rem;
+    }
+  }
+}

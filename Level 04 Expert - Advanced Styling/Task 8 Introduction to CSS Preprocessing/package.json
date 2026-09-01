@@ -1,7 +1,12 @@
 {
+  "name": "devforge-task-08",
+  "version": "1.0.0",
+  "description": "Production-quality CSS preprocessing project using Sass",
+  "private": true,
   "scripts": {
-    "sass": "sass styles.scss styles.css",
-    "sass:watch": "sass --watch styles.scss styles.css"
+    "build": "sass styles.scss styles.css --style=expanded",
+    "sass": "sass styles.scss styles.css --style=expanded",
+    "watch": "sass --watch styles.scss styles.css --style=expanded"
   },
   "devDependencies": {
     "sass": "^1.92.1"

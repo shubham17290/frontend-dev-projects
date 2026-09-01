@@ -41,8 +41,8 @@ $border-radius-lg: 12px;
   --devforge-muted: #64748b;
 
   /* Colors – Accents & States */
-  --devforge-hero-bg: #e0f2fe;        // was hardcoded
-  --devforge-icon-bg: #e0f2fe;        // used in multiple places
+  --devforge-hero-bg: #e0f2fe;
+  --devforge-icon-bg: #e0f2fe;      
   --devforge-success: #16a34a;
   --devforge-danger: #dc2626;
   --devforge-focus-ring: rgba(2, 132, 199, 0.12);
