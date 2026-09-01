@@ -1,0 +1,386 @@
+/* =========================================
+   CSS VARIABLES (DESIGN SYSTEM)
+========================================= */
+:root {
+    /* Color Palette */
+    --clr-bg-body: #f8fafc;
+    --clr-bg-surface: #ffffff;
+    --clr-bg-dark: #0f172a;
+    --clr-bg-hero: #e0f2fe;
+    --clr-bg-footer: #020617;
+
+    --clr-text-main: #1e293b;
+    --clr-text-muted: #475569;
+    --clr-text-light: #cbd5e1;
+    --clr-text-white: #ffffff;
+
+    --clr-primary: #0284c7;
+    --clr-primary-hover: #0369a1;
+    --clr-accent: #38bdf8;
+    --clr-border: #e2e8f0;
+
+    /* Typography */
+    --font-base: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+
+    /* Fluid Typography (Scales automatically based on screen size) */
+    --fs-h1: clamp(2.375rem, 5vw, 3.25rem);    /* 38px to 52px */
+    --fs-h2: clamp(1.875rem, 4vw, 2.375rem);   /* 30px to 38px */
+    --fs-h3: clamp(1.125rem, 2vw, 1.3125rem);  /* 18px to 21px */
+
+    /* Fluid Spacing */
+    --section-pad-y: clamp(60px, 8vw, 85px);
+
+    /* Layout */
+    --container-width: 90%;
+    --container-max: 1180px;
+    --transition-speed: 0.2s;
+}
+
+
+/* =========================================
+   GLOBAL RESET & ACCESSIBILITY
+========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Respect user preferences for reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+body {
+    font-family: var(--font-base);
+    background-color: var(--clr-bg-body);
+    color: var(--clr-text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Accessibility: Clear visual indicator for keyboard navigation */
+:focus-visible {
+    outline: 3px solid var(--clr-primary);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+address {
+    font-style: normal;
+}
+
+.container {
+    width: var(--container-width);
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+.site-header {
+    background-color: var(--clr-bg-dark);
+    color: var(--clr-text-white);
+}
+
+.header-content {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 10px 0;
+}
+
+.brand .site-title {
+    color: var(--clr-accent);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.brand p {
+    color: var(--clr-text-light);
+    font-size: 0.8125rem; /* 13px */
+    margin-top: 2px;
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.navigation a {
+    color: var(--clr-border);
+    font-size: 0.9375rem; /* 15px */
+    font-weight: 500;
+    transition: color var(--transition-speed) ease;
+}
+
+.navigation a:hover,
+.navigation a:focus-visible {
+    color: var(--clr-accent);
+}
+
+
+/* =========================================
+   HERO SECTION
+========================================= */
+.hero-section {
+    background-color: var(--clr-bg-hero);
+    padding: var(--section-pad-y) 0;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: clamp(40px, 6vw, 60px);
+}
+
+.eyebrow,
+.section-label {
+    color: var(--clr-primary);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.hero-text h1 {
+    color: var(--clr-bg-dark);
+    font-size: var(--fs-h1);
+    line-height: 1.1;
+    margin-bottom: 22px;
+}
+
+.hero-text h1 span {
+    display: block;
+    color: var(--clr-primary);
+}
+
+.hero-description {
+    max-width: 600px;
+    color: var(--clr-text-muted);
+    font-size: 1.125rem; /* 18px */
+    margin-bottom: 30px;
+}
+
+.primary-button {
+    display: inline-block;
+    padding: 13px 24px;
+    background-color: var(--clr-primary);
+    color: var(--clr-text-white);
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: background-color var(--transition-speed) ease,
+                transform var(--transition-speed) ease;
+}
+
+.primary-button:hover {
+    background-color: var(--clr-primary-hover);
+    transform: translateY(-2px);
+}
+
+/* Respect user preference for button animation */
+@media (prefers-reduced-motion: reduce) {
+    .primary-button:hover {
+        transform: none;
+    }
+}
+
+.hero-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+
+/* =========================================
+   GENERAL CONTENT SECTIONS
+========================================= */
+.content-section {
+    background-color: var(--clr-bg-surface);
+    padding: var(--section-pad-y) 0;
+}
+
+.content-section h2,
+.learning-section h2,
+.vision-section h2 {
+    color: var(--clr-bg-dark);
+    font-size: var(--fs-h2);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.section-description {
+    max-width: 800px;
+    color: var(--clr-text-muted);
+    font-size: 1.0625rem; /* 17px */
+    margin-bottom: 18px;
+}
+
+
+/* =========================================
+   LEARNING SECTION
+========================================= */
+.learning-section {
+    background-color: var(--clr-bg-body);
+    padding: var(--section-pad-y) 0;
+}
+
+.learning-grid {
+    display: grid;
+    /* Auto-fit magic: Automatically creates responsive columns without media queries! */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+    list-style: none; /* Fixed for the HTML ul element upgrade */
+}
+
+.learning-card {
+    padding: 30px;
+    background-color: var(--clr-bg-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: 10px;
+    transition: box-shadow var(--transition-speed) ease;
+}
+
+.learning-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.learning-card h3 {
+    color: var(--clr-primary);
+    font-size: var(--fs-h3);
+    margin-bottom: 12px;
+}
+
+.learning-card p {
+    color: var(--clr-text-muted);
+    font-size: 1rem;
+}
+
+
+/* =========================================
+   VISION SECTION
+========================================= */
+.vision-section {
+    background-color: var(--clr-bg-dark);
+    padding: var(--section-pad-y) 0;
+}
+
+.vision-section h2 {
+    color: var(--clr-accent);
+}
+
+.vision-section p:not(.section-label) {
+    max-width: 800px;
+    color: var(--clr-text-light);
+    font-size: 1.0625rem;
+    margin-bottom: 16px;
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+.contact-section {
+    text-align: center;
+}
+
+.contact-section .section-description {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.email {
+    color: var(--clr-text-muted);
+    font-size: 1.0625rem;
+}
+
+.email a {
+    color: var(--clr-primary);
+    font-weight: 600;
+}
+
+.email a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+.site-footer {
+    background-color: var(--clr-bg-footer);
+    padding: 25px 0;
+    text-align: center;
+}
+
+.site-footer p {
+    color: var(--clr-text-light);
+    font-size: 0.875rem; /* 14px */
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN (TABLETS & MOBILE)
+========================================= */
+/* Note: Thanks to clamp() and auto-fit grid, we need FAR fewer media queries now! */
+
+@media (max-width: 900px) {
+    .header-content {
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px 0;
+        gap: 18px;
+    }
+
+    .brand {
+        text-align: center;
+    }
+
+    .navigation {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-image {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
