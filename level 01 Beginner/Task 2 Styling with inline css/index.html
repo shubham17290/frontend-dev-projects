@@ -1,1154 +1,314 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
-        name="description"
-        content="Cognifyz Technologies Internship - Level 1 HTML and Inline CSS Task"
-    >
+      name="description"
+      content="DevForge is a learning-focused web platform for developers to build practical skills, create meaningful projects, and grow."
+    />
 
-    <title>
-        Interactive Website Development | Cognifyz Internship
-    </title>
+    <title>DevForge | Build. Learn. Create.</title>
 
-</head>
-
-
-<body
-    style="
+    <!-- IMPROVED: Extracted all inline styles into a central stylesheet -->
+    <style>
+      /* Base Styles */
+      body {
         margin: 0;
-        padding: 0;
-        font-family: Arial, Helvetica, sans-serif;
-        background-color: #f5f7fb;
+        background-color: #f4f7fb;
         color: #1f2937;
-    "
->
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+      }
 
+      h1,
+      h2,
+      h3,
+      p {
+        margin-top: 0;
+      }
 
-    <!-- ==================================================
+      a {
+        text-decoration: none;
+      }
+
+      /* Header */
+      header {
+        background-color: #111827;
+        color: white;
+        padding: 20px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 24px;
+        color: #38bdf8;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .tagline {
+        font-size: 14px;
+        color: #cbd5e1;
+        margin-top: 5px;
+      }
+
+      nav a {
+        color: white;
+        font-size: 15px;
+        margin-left: 20px;
+      }
+
+      nav a:hover {
+        color: #38bdf8;
+      }
+
+      /* Sections */
+      section {
+        padding: 60px 50px;
+      }
+
+      .bg-light {
+        background-color: white;
+      }
+      .bg-gray {
+        background-color: #f8fafc;
+      }
+      .bg-dark {
+        background-color: #0f172a;
+        color: white;
+      }
+      .bg-hero {
+        background-color: #e0f2fe;
+        padding: 70px 50px;
+      }
+
+      .section-title {
+        color: inherit;
+        font-size: 32px;
+        margin-bottom: 20px;
+      }
+
+      .bg-light .section-title,
+      .bg-gray .section-title {
+        color: #0f172a;
+      }
+      .bg-dark .section-title {
+        color: #38bdf8;
+      }
+
+      .text-muted {
+        color: #475569;
+        font-size: 17px;
+        line-height: 1.8;
+      }
+
+      .bg-dark .text-muted {
+        color: #cbd5e1;
+      }
+
+      /* Hero Specific */
+      .eyebrow {
+        color: #0284c7;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 2px;
+      }
+
+      .hero-title {
+        color: #0f172a;
+        font-size: 48px;
+        margin: 15px 0;
+      }
+
+      .btn-primary {
+        display: inline-block;
+        background-color: #0284c7;
+        color: white;
+        font-size: 16px;
+        padding: 12px 22px;
+        margin-top: 20px;
+        border-radius: 4px;
+      }
+
+      .hero-img {
+        background-color: white;
+        padding: 8px;
+        margin-top: 40px;
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Features List */
+      .features-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .feature-title {
+        color: #0284c7;
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+
+      /* Footer */
+      footer {
+        background-color: #020617;
+        color: #94a3b8;
+        text-align: center;
+        padding: 25px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =========================
          HEADER
-         ================================================== -->
+    ========================== -->
+    <header>
+      <div>
+        <a href="#home" class="logo" aria-label="DevForge Home">DEVFORGE</a>
+        <p class="tagline">Build. Learn. Create.</p>
+      </div>
 
-    <header
-        style="
-            background-color: #0f2747;
-            color: #ffffff;
-            padding: 18px 20px;
-            border-bottom: 4px solid #3b82f6;
-        "
-    >
-
-        <div
-            style="
-                max-width: 1100px;
-                margin: auto;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                gap: 20px;
-            "
-        >
-
-            <!-- Logo -->
-
-            <div>
-
-                <p
-                    style="
-                        margin: 0;
-                        font-size: 22px;
-                        font-weight: bold;
-                        color: #ffffff;
-                    "
-                >
-                    Cognifyz
-                </p>
-
-                <p
-                    style="
-                        margin: 3px 0 0;
-                        font-size: 12px;
-                        color: #bfdbfe;
-                    "
-                >
-                    Technologies Internship
-                </p>
-
-            </div>
-
-
-            <!-- Task Badge -->
-
-            <span
-                style="
-                    background-color: #2563eb;
-                    color: #ffffff;
-                    font-size: 13px;
-                    font-weight: bold;
-                    padding: 8px 14px;
-                    border-radius: 20px;
-                "
-            >
-                LEVEL 1 • BEGINNER
-            </span>
-
-        </div>
-
+      <nav aria-label="Main Navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#learning">Learning</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </header>
 
-
-
-    <!-- ==================================================
-         MAIN
-         ================================================== -->
-
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
     <main>
+      <!-- Hero Section -->
+      <section id="home" class="bg-hero" aria-labelledby="hero-heading">
+        <div>
+          <p class="eyebrow">FRONT-END DEVELOPMENT</p>
+          <h1 id="hero-heading" class="hero-title">
+            Build your ideas.<br />
+            Turn them into reality.
+          </h1>
+          <p class="text-muted">
+            DevForge is a learning-focused web platform for developers who want
+            to build practical skills, create meaningful projects, and grow
+            through continuous development.
+          </p>
+          <a href="#learning" class="btn-primary">Explore Learning</a>
+        </div>
 
+        <div>
+          <img
+            src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+            alt="Developer typing on a laptop displaying programming code"
+            width="600"
+            height="400"
+            class="hero-img"
+            fetchpriority="high"
+          />
+        </div>
+      </section>
 
-        <!-- ==================================================
-             HERO SECTION
-             ================================================== -->
+      <!-- About Section -->
+      <section id="about" class="bg-light" aria-labelledby="about-heading">
+        <h2 id="about-heading" class="section-title">What is DevForge?</h2>
+        <p class="text-muted">
+          DevForge is a simple digital space created for developers and
+          technology enthusiasts who believe that the best way to learn
+          development is by building.
+        </p>
+        <p class="text-muted">
+          The platform focuses on practical learning, project development,
+          experimentation, and continuous improvement.
+        </p>
+      </section>
 
-        <section
-            style="
-                background-color: #eaf3ff;
-                padding: 70px 20px;
-            "
+      <!-- Learning Section -->
+      <section id="learning" class="bg-gray" aria-labelledby="learning-heading">
+        <h2 id="learning-heading" class="section-title">Learn by Building</h2>
+        <p class="text-muted" style="margin-bottom: 30px">
+          Development becomes more meaningful when concepts are transformed into
+          real projects.
+        </p>
+
+        <ul class="features-list">
+          <li>
+            <h3 class="feature-title">HTML &amp; Web Structure</h3>
+            <p class="text-muted">
+              Learn how webpages are structured using meaningful HTML elements
+              and well-organized content.
+            </p>
+          </li>
+          <li>
+            <h3 class="feature-title">Responsive Design</h3>
+            <p class="text-muted">
+              Create interfaces that provide a better experience across
+              different devices and screen sizes.
+            </p>
+          </li>
+          <li>
+            <h3 class="feature-title">JavaScript &amp; Interactivity</h3>
+            <p class="text-muted">
+              Add behaviour and interaction to webpages using JavaScript and
+              modern web development techniques.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Vision Section -->
+      <section id="vision" class="bg-dark" aria-labelledby="vision-heading">
+        <h2 id="vision-heading" class="section-title">
+          Build. Learn. Improve.
+        </h2>
+        <p class="text-muted">
+          Every project is an opportunity to learn something new. DevForge is
+          designed to grow alongside the developer building it.
+        </p>
+        <p class="text-muted">
+          What starts as a simple HTML page can evolve into a complete
+          interactive web application.
+        </p>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="bg-light" aria-labelledby="contact-heading">
+        <h2 id="contact-heading" class="section-title">Get in Touch</h2>
+        <p class="text-muted">
+          Have an idea, question, or project you want to discuss? Connect and
+          start building.
+        </p>
+
+        <address
+          class="text-muted"
+          style="font-style: normal; margin-top: 20px"
         >
-
-            <div
-                style="
-                    max-width: 1100px;
-                    margin: auto;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    gap: 50px;
-                    flex-wrap: wrap;
-                "
-            >
-
-
-                <!-- Hero Text -->
-
-                <div
-                    style="
-                        flex: 1;
-                        min-width: 280px;
-                    "
-                >
-
-                    <p
-                        style="
-                            display: inline-block;
-                            margin: 0 0 15px;
-                            padding: 7px 13px;
-                            background-color: #dbeafe;
-                            color: #1d4ed8;
-                            font-size: 13px;
-                            font-weight: bold;
-                            border-radius: 20px;
-                        "
-                    >
-                        FRONTEND DEVELOPMENT
-                    </p>
-
-
-                    <h1
-                        style="
-                            margin: 0 0 18px;
-                            color: #102a43;
-                            font-size: 46px;
-                            line-height: 1.15;
-                        "
-                    >
-                        Interactive Website
-                        <br>
-                        Development
-                    </h1>
-
-
-                    <p
-                        style="
-                            margin: 0 0 20px;
-                            color: #475569;
-                            font-size: 18px;
-                            line-height: 1.7;
-                        "
-                    >
-                        Building the foundation of the web with
-                        <strong>HTML</strong> and
-                        <strong>Inline CSS</strong>.
-                    </p>
-
-
-                    <p
-                        style="
-                            margin: 0;
-                            color: #64748b;
-                            font-size: 15px;
-                            line-height: 1.7;
-                        "
-                    >
-                        Cognifyz Technologies Internship Program
-                        <br>
-                        Level 1 — Tasks 1 & 2
-                    </p>
-
-                </div>
-
-
-
-                <!-- Hero Visual -->
-
-                <div
-                    style="
-                        flex: 0 1 360px;
-                        min-width: 260px;
-                        background-color: #ffffff;
-                        padding: 30px;
-                        border-radius: 20px;
-                        text-align: center;
-                        box-shadow: 0 15px 40px rgba(15, 39, 71, 0.12);
-                    "
-                >
-
-                    <div
-                        style="
-                            width: 90px;
-                            height: 90px;
-                            margin: auto;
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            background-color: #eff6ff;
-                            border-radius: 50%;
-                            color: #2563eb;
-                            font-size: 38px;
-                            font-weight: bold;
-                        "
-                    >
-                        &lt;/&gt;
-                    </div>
-
-
-                    <h2
-                        style="
-                            margin: 20px 0 8px;
-                            color: #172b4d;
-                            font-size: 24px;
-                        "
-                    >
-                        HTML + CSS
-                    </h2>
-
-
-                    <p
-                        style="
-                            margin: 0;
-                            color: #64748b;
-                            font-size: 15px;
-                        "
-                    >
-                        Structure meets presentation.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==================================================
-             TASK 1
-             ================================================== -->
-
-        <section
-            style="
-                padding: 65px 20px;
-                background-color: #ffffff;
-            "
-        >
-
-            <div
-                style="
-                    max-width: 1000px;
-                    margin: auto;
-                "
-            >
-
-                <!-- Section Heading -->
-
-                <div
-                    style="
-                        margin-bottom: 35px;
-                    "
-                >
-
-                    <p
-                        style="
-                            margin: 0 0 8px;
-                            color: #2563eb;
-                            font-size: 13px;
-                            font-weight: bold;
-                            letter-spacing: 1px;
-                        "
-                    >
-                        TASK 01
-                    </p>
-
-
-                    <h2
-                        style="
-                            margin: 0 0 10px;
-                            color: #172b4d;
-                            font-size: 32px;
-                        "
-                    >
-                        Basic HTML Page
-                    </h2>
-
-
-                    <p
-                        style="
-                            margin: 0;
-                            color: #64748b;
-                            font-size: 16px;
-                        "
-                    >
-                        Understanding the fundamental structure
-                        of a webpage.
-                    </p>
-
-                </div>
-
-
-
-                <!-- Task 1 Content -->
-
-                <div
-                    style="
-                        display: flex;
-                        gap: 25px;
-                        flex-wrap: wrap;
-                    "
-                >
-
-
-                    <!-- Requirement Card -->
-
-                    <article
-                        style="
-                            flex: 1;
-                            min-width: 260px;
-                            padding: 28px;
-                            background-color: #f8fafc;
-                            border: 1px solid #e2e8f0;
-                            border-radius: 14px;
-                        "
-                    >
-
-                        <h3
-                            style="
-                                margin-top: 0;
-                                color: #2563eb;
-                                font-size: 21px;
-                            "
-                        >
-                            HTML Structure
-                        </h3>
-
-
-                        <p
-                            style="
-                                color: #475569;
-                                font-size: 16px;
-                                line-height: 1.7;
-                            "
-                        >
-                            A webpage begins with a proper HTML5
-                            structure containing the
-                            <strong>html</strong>,
-                            <strong>head</strong>, and
-                            <strong>body</strong> elements.
-                        </p>
-
-                    </article>
-
-
-
-                    <!-- Content Card -->
-
-                    <article
-                        style="
-                            flex: 1;
-                            min-width: 260px;
-                            padding: 28px;
-                            background-color: #f8fafc;
-                            border: 1px solid #e2e8f0;
-                            border-radius: 14px;
-                        "
-                    >
-
-                        <h3
-                            style="
-                                margin-top: 0;
-                                color: #7c3aed;
-                                font-size: 21px;
-                            "
-                        >
-                            Web Content
-                        </h3>
-
-
-                        <p
-                            style="
-                                color: #475569;
-                                font-size: 16px;
-                                line-height: 1.7;
-                            "
-                        >
-                            Headings, paragraphs, and images are
-                            added inside the body to communicate
-                            information to the user.
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==================================================
-             TASK 2 INTRODUCTION
-             ================================================== -->
-
-        <section
-            style="
-                padding: 65px 20px;
-                background-color: #f5f7fb;
-            "
-        >
-
-            <div
-                style="
-                    max-width: 1000px;
-                    margin: auto;
-                "
-            >
-
-                <p
-                    style="
-                        margin: 0 0 8px;
-                        color: #2563eb;
-                        font-size: 13px;
-                        font-weight: bold;
-                        letter-spacing: 1px;
-                    "
-                >
-                    TASK 02
-                </p>
-
-
-                <h2
-                    style="
-                        margin: 0 0 12px;
-                        color: #172b4d;
-                        font-size: 32px;
-                    "
-                >
-                    Styling with Inline CSS
-                </h2>
-
-
-                <p
-                    style="
-                        max-width: 720px;
-                        margin: 0 0 35px;
-                        color: #64748b;
-                        font-size: 17px;
-                        line-height: 1.7;
-                    "
-                >
-                    Inline CSS allows styles to be applied directly
-                    inside HTML elements using the
-                    <strong>style</strong> attribute.
-                </p>
-
-
-
-                <!-- CSS Demonstrations -->
-
-                <div
-                    style="
-                        display: flex;
-                        gap: 22px;
-                        flex-wrap: wrap;
-                    "
-                >
-
-
-                    <!-- Font Color -->
-
-                    <article
-                        style="
-                            flex: 1;
-                            min-width: 230px;
-                            background-color: #ffffff;
-                            padding: 25px;
-                            border-radius: 14px;
-                            border: 1px solid #e2e8f0;
-                            box-shadow: 0 5px 20px rgba(15, 23, 42, 0.05);
-                        "
-                    >
-
-                        <span
-                            style="
-                                display: inline-block;
-                                width: 45px;
-                                height: 45px;
-                                line-height: 45px;
-                                text-align: center;
-                                background-color: #dbeafe;
-                                color: #2563eb;
-                                font-size: 22px;
-                                font-weight: bold;
-                                border-radius: 10px;
-                            "
-                        >
-                            A
-                        </span>
-
-
-                        <h3
-                            style="
-                                color: #2563eb;
-                                font-size: 22px;
-                                margin: 18px 0 10px;
-                            "
-                        >
-                            Font Color
-                        </h3>
-
-
-                        <p
-                            style="
-                                color: #1d4ed8;
-                                font-size: 16px;
-                                line-height: 1.6;
-                            "
-                        >
-                            This text demonstrates changing
-                            the font color using inline CSS.
-                        </p>
-
-
-                        <p
-                            style="
-                                color: #64748b;
-                                font-size: 13px;
-                                background-color: #f8fafc;
-                                padding: 9px;
-                                border-radius: 6px;
-                            "
-                        >
-                            color: #2563eb;
-                        </p>
-
-                    </article>
-
-
-
-                    <!-- Font Size -->
-
-                    <article
-                        style="
-                            flex: 1;
-                            min-width: 230px;
-                            background-color: #ffffff;
-                            padding: 25px;
-                            border-radius: 14px;
-                            border: 1px solid #e2e8f0;
-                            box-shadow: 0 5px 20px rgba(15, 23, 42, 0.05);
-                        "
-                    >
-
-                        <span
-                            style="
-                                display: inline-block;
-                                width: 45px;
-                                height: 45px;
-                                line-height: 45px;
-                                text-align: center;
-                                background-color: #ede9fe;
-                                color: #7c3aed;
-                                font-size: 22px;
-                                font-weight: bold;
-                                border-radius: 10px;
-                            "
-                        >
-                            T
-                        </span>
-
-
-                        <h3
-                            style="
-                                color: #7c3aed;
-                                font-size: 24px;
-                                margin: 18px 0 10px;
-                            "
-                        >
-                            Font Size
-                        </h3>
-
-
-                        <p
-                            style="
-                                color: #5b21b6;
-                                font-size: 19px;
-                                line-height: 1.6;
-                            "
-                        >
-                            This text uses a larger font size
-                            through inline CSS.
-                        </p>
-
-
-                        <p
-                            style="
-                                color: #64748b;
-                                font-size: 13px;
-                                background-color: #f8fafc;
-                                padding: 9px;
-                                border-radius: 6px;
-                            "
-                        >
-                            font-size: 19px;
-                        </p>
-
-                    </article>
-
-
-
-                    <!-- Background Color -->
-
-                    <article
-                        style="
-                            flex: 1;
-                            min-width: 230px;
-                            background-color: #ffffff;
-                            padding: 25px;
-                            border-radius: 14px;
-                            border: 1px solid #e2e8f0;
-                            box-shadow: 0 5px 20px rgba(15, 23, 42, 0.05);
-                        "
-                    >
-
-                        <span
-                            style="
-                                display: inline-block;
-                                width: 45px;
-                                height: 45px;
-                                line-height: 45px;
-                                text-align: center;
-                                background-color: #dcfce7;
-                                color: #059669;
-                                font-size: 22px;
-                                font-weight: bold;
-                                border-radius: 10px;
-                            "
-                        >
-                            B
-                        </span>
-
-
-                        <h3
-                            style="
-                                color: #059669;
-                                font-size: 22px;
-                                margin: 18px 0 10px;
-                            "
-                        >
-                            Background
-                        </h3>
-
-
-                        <p
-                            style="
-                                color: #047857;
-                                font-size: 16px;
-                                background-color: #ecfdf5;
-                                padding: 12px;
-                                line-height: 1.6;
-                                border-radius: 7px;
-                            "
-                        >
-                            This paragraph demonstrates
-                            background color using inline CSS.
-                        </p>
-
-
-                        <p
-                            style="
-                                color: #64748b;
-                                font-size: 13px;
-                                background-color: #f8fafc;
-                                padding: 9px;
-                                border-radius: 6px;
-                            "
-                        >
-                            background-color: #ecfdf5;
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==================================================
-             IMAGE SECTION
-             ================================================== -->
-
-        <section
-            style="
-                padding: 65px 20px;
-                background-color: #ffffff;
-            "
-        >
-
-            <div
-                style="
-                    max-width: 1000px;
-                    margin: auto;
-                    text-align: center;
-                "
-            >
-
-                <p
-                    style="
-                        margin: 0 0 8px;
-                        color: #2563eb;
-                        font-size: 13px;
-                        font-weight: bold;
-                        letter-spacing: 1px;
-                    "
-                >
-                    VISUAL ELEMENT
-                </p>
-
-
-                <h2
-                    style="
-                        margin: 0 0 12px;
-                        color: #172b4d;
-                        font-size: 32px;
-                    "
-                >
-                    Building for the Web
-                </h2>
-
-
-                <p
-                    style="
-                        max-width: 650px;
-                        margin: 0 auto 30px;
-                        color: #64748b;
-                        font-size: 16px;
-                        line-height: 1.7;
-                    "
-                >
-                    Images are an important part of web content.
-                    HTML allows us to include them using the
-                    <strong>img</strong> element.
-                </p>
-
-
-                <img
-                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=80"
-                    alt="Modern web development workspace with laptop and code"
-                    style="
-                        width: 100%;
-                        max-width: 800px;
-                        height: auto;
-                        display: block;
-                        margin: auto;
-                        border-radius: 16px;
-                        box-shadow: 0 15px 35px rgba(15, 23, 42, 0.12);
-                    "
-                >
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==================================================
-             LEARNING SECTION
-             ================================================== -->
-
-        <section
-            style="
-                padding: 65px 20px;
-                background-color: #eef5ff;
-            "
-        >
-
-            <div
-                style="
-                    max-width: 1000px;
-                    margin: auto;
-                "
-            >
-
-                <p
-                    style="
-                        margin: 0 0 8px;
-                        color: #2563eb;
-                        font-size: 13px;
-                        font-weight: bold;
-                        letter-spacing: 1px;
-                    "
-                >
-                    KEY LEARNINGS
-                </p>
-
-
-                <h2
-                    style="
-                        margin: 0 0 35px;
-                        color: #172b4d;
-                        font-size: 32px;
-                    "
-                >
-                    What I Learned
-                </h2>
-
-
-
-                <div
-                    style="
-                        display: flex;
-                        gap: 22px;
-                        flex-wrap: wrap;
-                    "
-                >
-
-                    <div
-                        style="
-                            flex: 1;
-                            min-width: 230px;
-                            background-color: #ffffff;
-                            padding: 25px;
-                            border-radius: 14px;
-                        "
-                    >
-
-                        <h3
-                            style="
-                                color: #2563eb;
-                                font-size: 21px;
-                            "
-                        >
-                            HTML Structure
-                        </h3>
-
-                        <p
-                            style="
-                                color: #64748b;
-                                font-size: 15px;
-                                line-height: 1.7;
-                            "
-                        >
-                            Learned how HTML elements create
-                            the structure of a webpage.
-                        </p>
-
-                    </div>
-
-
-
-                    <div
-                        style="
-                            flex: 1;
-                            min-width: 230px;
-                            background-color: #ffffff;
-                            padding: 25px;
-                            border-radius: 14px;
-                        "
-                    >
-
-                        <h3
-                            style="
-                                color: #7c3aed;
-                                font-size: 21px;
-                            "
-                        >
-                            CSS Styling
-                        </h3>
-
-                        <p
-                            style="
-                                color: #64748b;
-                                font-size: 15px;
-                                line-height: 1.7;
-                            "
-                        >
-                            Learned how CSS changes the visual
-                            appearance of web content.
-                        </p>
-
-                    </div>
-
-
-
-                    <div
-                        style="
-                            flex: 1;
-                            min-width: 230px;
-                            background-color: #ffffff;
-                            padding: 25px;
-                            border-radius: 14px;
-                        "
-                    >
-
-                        <h3
-                            style="
-                                color: #059669;
-                                font-size: 21px;
-                            "
-                        >
-                            Inline CSS
-                        </h3>
-
-                        <p
-                            style="
-                                color: #64748b;
-                                font-size: 15px;
-                                line-height: 1.7;
-                            "
-                        >
-                            Learned how the style attribute can
-                            directly modify HTML elements.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==================================================
-             SYNTAX SECTION
-             ================================================== -->
-
-        <section
-            style="
-                padding: 65px 20px;
-                background-color: #0f2747;
-            "
-        >
-
-            <div
-                style="
-                    max-width: 850px;
-                    margin: auto;
-                "
-            >
-
-                <p
-                    style="
-                        margin: 0 0 8px;
-                        color: #93c5fd;
-                        font-size: 13px;
-                        font-weight: bold;
-                        letter-spacing: 1px;
-                    "
-                >
-                    UNDERSTANDING THE CONCEPT
-                </p>
-
-
-                <h2
-                    style="
-                        margin: 0 0 18px;
-                        color: #ffffff;
-                        font-size: 32px;
-                    "
-                >
-                    Inline CSS Syntax
-                </h2>
-
-
-                <p
-                    style="
-                        color: #cbd5e1;
-                        font-size: 16px;
-                        line-height: 1.7;
-                    "
-                >
-                    CSS properties can be written directly inside
-                    the <strong>style</strong> attribute.
-                </p>
-
-
-                <div
-                    style="
-                        margin-top: 25px;
-                        padding: 22px;
-                        background-color: #071a30;
-                        border-radius: 12px;
-                        overflow-x: auto;
-                    "
-                >
-
-                    <code
-                        style="
-                            color: #bfdbfe;
-                            font-size: 15px;
-                            font-family: Consolas, 'Courier New', monospace;
-                        "
-                    >
-                        &lt;p style="color: blue; font-size: 20px;
-                        background-color: lightblue;"&gt;
-                        Hello World!
-                        &lt;/p&gt;
-                    </code>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==================================================
-             FINAL MESSAGE
-             ================================================== -->
-
-        <section
-            style="
-                padding: 65px 20px;
-                background-color: #ffffff;
-                text-align: center;
-            "
-        >
-
-            <div
-                style="
-                    max-width: 750px;
-                    margin: auto;
-                "
-            >
-
-                <div
-                    style="
-                        width: 60px;
-                        height: 60px;
-                        margin: 0 auto 20px;
-                        line-height: 60px;
-                        background-color: #dcfce7;
-                        color: #16a34a;
-                        font-size: 28px;
-                        font-weight: bold;
-                        border-radius: 50%;
-                    "
-                >
-                    ✓
-                </div>
-
-
-                <h2
-                    style="
-                        margin: 0 0 12px;
-                        color: #172b4d;
-                        font-size: 30px;
-                    "
-                >
-                    Task Completed
-                </h2>
-
-
-                <p
-                    style="
-                        margin: 0;
-                        color: #64748b;
-                        font-size: 17px;
-                        line-height: 1.7;
-                    "
-                >
-                    The webpage demonstrates the basic HTML
-                    structure and the fundamentals of styling
-                    HTML elements using inline CSS.
-                </p>
-
-            </div>
-
-        </section>
-
+          Email:
+          <a
+            href="mailto:hello@devforge.example"
+            style="color: #0284c7; font-weight: 500"
+          >
+            hello@devforge.example
+          </a>
+        </address>
+      </section>
     </main>
 
-
-
-    <!-- ==================================================
+    <!-- =========================
          FOOTER
-         ================================================== -->
-
-    <footer
-        style="
-            background-color: #081c32;
-            color: #ffffff;
-            padding: 30px 20px;
-            text-align: center;
-        "
-    >
-
-        <p
-            style="
-                margin: 0 0 7px;
-                color: #ffffff;
-                font-size: 16px;
-                font-weight: bold;
-            "
-        >
-            Cognifyz Technologies Internship Program
-        </p>
-
-
-        <p
-            style="
-                margin: 0;
-                color: #94a3b8;
-                font-size: 13px;
-            "
-        >
-            Level 1 • Task 1 & Task 2 • Interactive Website Development
-        </p>
-
+    ========================== -->
+    <footer>
+      <p style="margin: 0">
+        <small>&copy; 2026 DevForge. Built for learning and innovation.</small>
+      </p>
     </footer>
-
-</body>
-
+  </body>
 </html>
