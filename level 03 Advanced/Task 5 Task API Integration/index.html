@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="DevForge - A developer learning platform built with HTML, CSS, JavaScript and API integration."
+    />
+
+    <title>DevForge | Developer Learning Platform</title>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Deferred JavaScript loading for optimal performance -->
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <!-- IMPROVED: Accessibility - Skip to main content link for keyboard users -->
+    <a
+      href="#main-content"
+      class="skip-link"
+      style="
+        position: absolute;
+        left: -9999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      "
+    >
+      Skip to main content
+    </a>
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+    <header class="site-header">
+      <div class="container header-content">
+        <div class="brand">
+          <a href="#home" class="site-title" aria-label="DevForge Home">
+            <!-- IMPROVED: Fixed Document Outline. Replaced <h2> with a styled <span>.
+                         A page should logically flow from H1 downwards. Using an H2 for the logo
+                         breaks the SEO and screen-reader heading hierarchy. -->
+            <span
+              style="
+                display: block;
+                font-size: 1.5rem;
+                font-weight: 700;
+                letter-spacing: 1px;
+                color: #38bdf8;
+              "
+            >
+              DEVFORGE
+            </span>
+          </a>
+          <p>Build. Learn. Create.</p>
+        </div>
+
+        <nav class="navigation" aria-label="Main navigation">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#resources">Resources</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- =========================================
+         MAIN
+    ========================================== -->
+    <!-- IMPROVED: Added id="main-content" to act as the target for the Skip Link -->
+    <main id="main-content">
+      <!-- =====================================
+             HERO
+        ====================================== -->
+      <section id="home" class="hero-section" aria-labelledby="hero-heading">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <p class="eyebrow" aria-hidden="true">
+              DEVELOPER LEARNING PLATFORM
+            </p>
+
+            <!-- The true start of the document outline (H1) -->
+            <h1 id="hero-heading">
+              Build your ideas.
+              <span>Turn them into reality.</span>
+            </h1>
+
+            <p class="hero-description">
+              DevForge is a learning-focused platform where developers can
+              explore concepts, discover resources, and learn by building real
+              projects.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#resources" class="primary-button">
+                Explore Resources
+              </a>
+
+              <button id="themeButton" class="secondary-button" type="button">
+                Change Background
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-image">
+            <img
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+              alt="Developer typing on a laptop displaying programming code"
+              width="600"
+              height="400"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================
+             ABOUT
+        ====================================== -->
+      <section
+        id="about"
+        class="content-section"
+        aria-labelledby="about-heading"
+      >
+        <div class="container">
+          <p class="section-label" aria-hidden="true">ABOUT DEVFORGE</p>
+
+          <h2 id="about-heading">Learn by Building</h2>
+
+          <p class="section-description">
+            DevForge is designed around practical development. Instead of only
+            reading about programming, developers can explore concepts and turn
+            their knowledge into working projects.
+          </p>
+
+          <p class="section-description">
+            The platform is progressively evolving from a simple HTML website
+            into an interactive, API-powered web application.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================
+             API RESOURCES — TASK 5
+        ====================================== -->
+      <section
+        id="resources"
+        class="resources-section content-section"
+        aria-labelledby="resources-heading"
+      >
+        <div class="container">
+          <p class="section-label" aria-hidden="true">API POWERED CONTENT</p>
+
+          <h2 id="resources-heading">Developer Resources</h2>
+
+          <p class="section-description">
+            These resources are loaded dynamically from a public API using
+            JavaScript.
+          </p>
+
+          <!-- API Status -->
+          <div id="apiStatus" class="api-status" aria-live="polite">
+            Loading developer resources...
+          </div>
+
+          <!-- Dynamic API Content Wrapper -->
+          <ul id="resourceContainer" class="resource-grid" role="list">
+            <!-- JavaScript will inject <li> items here -->
+          </ul>
+
+          <!-- Load More Button -->
+          <div
+            class="resource-actions"
+            style="margin-top: 30px; text-align: center"
+          >
+            <!-- IMPROVED: Added aria-controls to link the button to the container it modifies -->
+            <button
+              id="loadMoreButton"
+              class="primary-button"
+              type="button"
+              aria-controls="resourceContainer"
+            >
+              Load More Resources
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================
+             INTERACTION
+        ====================================== -->
+      <section
+        id="interaction"
+        class="interaction-section"
+        aria-labelledby="interaction-heading"
+      >
+        <div class="container interaction-content">
+          <p class="section-label" aria-hidden="true">JAVASCRIPT INTERACTION</p>
+
+          <h2 id="interaction-heading">Make the Web Interactive</h2>
+
+          <p>
+            The website combines JavaScript interaction with dynamically loaded
+            API content.
+          </p>
+
+          <!-- IMPROVED: Added aria-controls to link the button to the message it updates -->
+          <button
+            id="interactionButton"
+            class="primary-button"
+            type="button"
+            aria-controls="interactionMessage"
+          >
+            Change Page Background
+          </button>
+
+          <p
+            id="interactionMessage"
+            class="interaction-message"
+            aria-live="polite"
+          >
+            Ready for interaction.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================
+             VISION
+        ====================================== -->
+      <section
+        id="vision"
+        class="vision-section"
+        aria-labelledby="vision-heading"
+      >
+        <div class="container">
+          <p class="section-label" aria-hidden="true">THE DEVFORGE VISION</p>
+
+          <h2 id="vision-heading">Build. Learn. Improve.</h2>
+
+          <p>
+            Every project is an opportunity to learn something new. DevForge is
+            designed to grow alongside the developer building it.
+          </p>
+
+          <p>
+            What starts as a simple HTML page can evolve into a complete
+            interactive web application.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================
+             CONTACT
+        ====================================== -->
+      <section
+        id="contact"
+        class="content-section contact-section"
+        aria-labelledby="contact-heading"
+      >
+        <div class="container">
+          <p class="section-label" aria-hidden="true">CONNECT</p>
+
+          <h2 id="contact-heading">Get in Touch</h2>
+
+          <p class="section-description">
+            Have an idea, question, or project you want to discuss? Connect and
+            start building.
+          </p>
+
+          <address class="email">
+            Email:
+            <a href="mailto:hello@devforge.example"> hello@devforge.example </a>
+          </address>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          <small>
+            &copy; 2026 DevForge. Built for learning and innovation.
+          </small>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
