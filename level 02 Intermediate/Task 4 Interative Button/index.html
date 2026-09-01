@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- IMPROVED: Added meta description for SEO and link previews -->
+    <meta
+      name="description"
+      content="DevForge is a learning-focused web platform for developers to build practical skills, create meaningful projects, and grow."
+    />
+
+    <title>DevForge | Build. Learn. Create.</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- IMPROVED: Moved script to head with 'defer' keyword.
+         This is modern best practice. It downloads in the background
+         but waits to execute until the HTML is fully parsed. -->
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <!-- =========================
+         HEADER
+    ========================== -->
+    <header class="site-header">
+      <div class="container header-content">
+        <div class="brand">
+          <!-- IMPROVED: Transformed header logo into a standard clickable anchor link -->
+          <a href="#home" class="site-title" aria-label="DevForge Home">
+            <h2>DEVFORGE</h2>
+          </a>
+          <p>Build. Learn. Create.</p>
+        </div>
+
+        <!-- IMPROVED: Added aria-label to distinguish this navigation landmark -->
+        <nav class="navigation" aria-label="Main Navigation">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#learning">Learning</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+    <main>
+      <!-- HERO -->
+      <!-- IMPROVED: Linked section to heading via aria-labelledby -->
+      <section id="home" class="hero-section" aria-labelledby="hero-heading">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <!-- IMPROVED: Hid eyebrow text from screen readers to prevent repetitive announcements -->
+            <p class="eyebrow" aria-hidden="true">FRONT-END DEVELOPMENT</p>
+
+            <h1 id="hero-heading">
+              Build your ideas.
+              <span>Turn them into reality.</span>
+            </h1>
+
+            <p class="hero-description">
+              DevForge is a learning-focused web platform for developers who
+              want to build practical skills, create meaningful projects, and
+              grow through continuous development.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#learning" class="primary-button"> Explore Learning </a>
+
+              <!-- Task 4 Interactive Button -->
+              <button id="themeButton" class="secondary-button" type="button">
+                Change Background
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-image">
+            <!-- IMPROVED: Added explicit dimensions and fetchpriority to prevent Layout Shifts (CLS) -->
+            <img
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+              alt="Developer typing on a laptop displaying programming code"
+              width="600"
+              height="400"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================
+             ABOUT
+        ========================== -->
+      <section
+        id="about"
+        class="content-section"
+        aria-labelledby="about-heading"
+      >
+        <div class="container">
+          <p class="section-label" aria-hidden="true">ABOUT DEVFORGE</p>
+
+          <h2 id="about-heading">What is DevForge?</h2>
+
+          <p class="section-description">
+            DevForge is a simple digital space created for developers and
+            technology enthusiasts who believe that the best way to learn
+            development is by building.
+          </p>
+
+          <p class="section-description">
+            The platform focuses on practical learning, project development,
+            experimentation, and continuous improvement.
+          </p>
+        </div>
+      </section>
+
+      <!-- =========================
+             LEARNING
+        ========================== -->
+      <section
+        id="learning"
+        class="learning-section"
+        aria-labelledby="learning-heading"
+      >
+        <div class="container">
+          <p class="section-label" aria-hidden="true">LEARNING PATH</p>
+
+          <h2 id="learning-heading">Learn by Building</h2>
+
+          <p class="section-description">
+            Development becomes more meaningful when concepts are transformed
+            into real projects.
+          </p>
+
+          <!-- IMPROVED: Converted grid to an unordered list so assistive tech announces "List, 3 items" -->
+          <ul class="learning-grid" role="list">
+            <li class="learning-card">
+              <h3>HTML &amp; Web Structure</h3>
+
+              <p>
+                Learn how webpages are structured using meaningful HTML elements
+                and well-organized content.
+              </p>
+            </li>
+
+            <li class="learning-card">
+              <h3>Responsive Design</h3>
+
+              <p>
+                Create interfaces that provide a better experience across
+                different devices and screen sizes.
+              </p>
+            </li>
+
+            <li class="learning-card">
+              <h3>JavaScript &amp; Interactivity</h3>
+
+              <p>
+                Add behaviour and interaction to webpages using JavaScript and
+                modern web development techniques.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- =========================
+             INTERACTION DEMO
+        ========================== -->
+      <!-- IMPROVED: Added an ID and aria-labelledby to the new section -->
+      <section
+        id="interaction"
+        class="interaction-section"
+        aria-labelledby="interaction-heading"
+      >
+        <div class="container interaction-content">
+          <p class="section-label" aria-hidden="true">JAVASCRIPT INTERACTION</p>
+
+          <h2 id="interaction-heading">Make the Web Interactive</h2>
+
+          <p>
+            Click the button below to change the background color of the page.
+          </p>
+
+          <button id="interactionButton" class="primary-button" type="button">
+            Change Page Background
+          </button>
+
+          <!-- Note: Your use of aria-live="polite" here is EXCELLENT accessibility practice! -->
+          <p
+            id="interactionMessage"
+            class="interaction-message"
+            aria-live="polite"
+          >
+            Ready for interaction.
+          </p>
+        </div>
+      </section>
+
+      <!-- =========================
+             VISION
+        ========================== -->
+      <!-- IMPROVED: Added missing ID for structural consistency -->
+      <section
+        id="vision"
+        class="vision-section"
+        aria-labelledby="vision-heading"
+      >
+        <div class="container">
+          <p class="section-label" aria-hidden="true">THE DEVFORGE VISION</p>
+
+          <h2 id="vision-heading">Build. Learn. Improve.</h2>
+
+          <p>
+            Every project is an opportunity to learn something new. DevForge is
+            designed to grow alongside the developer building it.
+          </p>
+
+          <p>
+            What starts as a simple HTML page can evolve into a complete
+            interactive web application.
+          </p>
+        </div>
+      </section>
+
+      <!-- =========================
+             CONTACT
+        ========================== -->
+      <section
+        id="contact"
+        class="content-section contact-section"
+        aria-labelledby="contact-heading"
+      >
+        <div class="container">
+          <p class="section-label" aria-hidden="true">CONNECT</p>
+
+          <h2 id="contact-heading">Get in Touch</h2>
+
+          <p class="section-description">
+            Have an idea, question, or project you want to discuss? Connect and
+            start building.
+          </p>
+
+          <!-- IMPROVED: Semantically wrapped contact info in <address> tag -->
+          <address class="email">
+            Email:
+            <a href="mailto:hello@devforge.example"> hello@devforge.example </a>
+          </address>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          <!-- IMPROVED: Semantic <small> tag for legal/copyright text -->
+          <small>
+            &copy; 2026 DevForge. Built for learning and innovation.
+          </small>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
