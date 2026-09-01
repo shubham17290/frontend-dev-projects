@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="DevForge - A developer learning platform built with modern front-end technologies."
+    />
+
+    <title>DevForge | Developer Learning Platform</title>
+
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Deferred JavaScript loading prevents render-blocking -->
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Accessibility: Skip to main content link for keyboard navigation -->
+    <a
+      href="#main-content"
+      class="skip-link"
+      style="
+        position: absolute;
+        left: -9999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      "
+    >
+      Skip to main content
+    </a>
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+    <header class="site-header">
+      <div class="container header-content">
+        <div class="brand">
+          <a href="#home" class="site-title" aria-label="DevForge Home">
+            <span
+              style="
+                display: block;
+                font-size: 1.5rem;
+                font-weight: 700;
+                letter-spacing: 1px;
+                color: #38bdf8;
+              "
+            >
+              DEVFORGE
+            </span>
+          </a>
+          <p>Build. Learn. Create.</p>
+        </div>
+
+        <nav class="navigation" aria-label="Main navigation">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#resources">Resources</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- =========================================
+         MAIN
+    ========================================== -->
+    <main id="main-content">
+      <!-- =====================================
+             HERO
+        ====================================== -->
+      <section id="home" class="hero-section" aria-labelledby="hero-heading">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <p class="eyebrow" aria-hidden="true">
+              DEVELOPER LEARNING PLATFORM
+            </p>
+
+            <h1 id="hero-heading">
+              Build your ideas.
+              <span>Turn them into reality.</span>
+            </h1>
+
+            <p class="hero-description">
+              DevForge is a learning-focused platform where developers can
+              explore concepts, discover resources, and learn by building real
+              projects.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#resources" class="primary-button">
+                Explore Resources
+              </a>
+
+              <button id="themeButton" class="secondary-button" type="button">
+                Change Background
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-image">
+            <img
+              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+              alt="Developer typing on a laptop displaying programming code"
+              width="600"
+              height="400"
+              fetchpriority="high"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================
+             ABOUT
+        ====================================== -->
+      <section
+        id="about"
+        class="content-section"
+        aria-labelledby="about-heading"
+      >
+        <div class="container">
+          <p class="section-label" aria-hidden="true">ABOUT DEVFORGE</p>
+
+          <h2 id="about-heading">Learn by Building</h2>
+
+          <p class="section-description">
+            DevForge is designed around practical development. Instead of only
+            reading about programming, developers can explore concepts and turn
+            their knowledge into working projects.
+          </p>
+
+          <p class="section-description">
+            The platform is progressively evolving from a simple HTML website
+            into an interactive, API-powered web application.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================
+             API RESOURCES
+        ====================================== -->
+      <section
+        id="resources"
+        class="resources-section content-section"
+        aria-labelledby="resources-heading"
+      >
+        <div class="container">
+          <p class="section-label" aria-hidden="true">API POWERED CONTENT</p>
+
+          <h2 id="resources-heading">Developer Resources</h2>
+
+          <p class="section-description">
+            These resources are loaded dynamically from a public API using
+            JavaScript.
+          </p>
+
+          <div id="apiStatus" class="api-status" aria-live="polite">
+            Loading developer resources...
+          </div>
+
+          <ul id="resourceContainer" class="resource-grid" role="list">
+            <!-- API content inserted by JavaScript as <li> elements -->
+          </ul>
+
+          <div
+            class="resource-actions"
+            style="margin-top: 30px; text-align: center"
+          >
+            <button
+              id="loadMoreButton"
+              class="primary-button"
+              type="button"
+              aria-controls="resourceContainer"
+            >
+              Load More Resources
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================
+             TASK 4 — INTERACTION
+        ====================================== -->
+      <section
+        id="interaction"
+        class="interaction-section"
+        aria-labelledby="interaction-heading"
+      >
+        <div class="container interaction-content">
+          <p class="section-label" aria-hidden="true">JAVASCRIPT INTERACTION</p>
+
+          <h2 id="interaction-heading">Make the Web Interactive</h2>
+
+          <p>Change the page background using JavaScript.</p>
+
+          <button
+            id="interactionButton"
+            class="primary-button"
+            type="button"
+            aria-controls="interactionMessage"
+          >
+            Change Page Background
+          </button>
+
+          <p
+            id="interactionMessage"
+            class="interaction-message"
+            aria-live="polite"
+          >
+            Ready for interaction.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================
+             TASK 6 — CONTACT FORM
+        ====================================== -->
+      <section
+        id="contact"
+        class="contact-section content-section"
+        aria-labelledby="contact-heading"
+      >
+        <div class="container contact-container">
+          <div class="contact-intro">
+            <p class="section-label" aria-hidden="true">GET IN TOUCH</p>
+
+            <h2 id="contact-heading">Let's Build Something</h2>
+
+            <p class="section-description">
+              Have an idea, question, or project in mind? Send us a message and
+              start the conversation.
+            </p>
+
+            <div class="contact-points">
+              <div>
+                <strong>Email</strong>
+                <address style="font-style: normal">
+                  <a href="mailto:hello@devforge.example"
+                    >hello@devforge.example</a
+                  >
+                </address>
+              </div>
+
+              <div style="margin-top: 15px">
+                <strong>Response</strong>
+                <p style="margin: 0">We'll get back to you soon.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FORM -->
+          <div class="form-wrapper" style="margin-top: 40px">
+            <form id="contactForm" novalidate>
+              <!-- Name -->
+              <div class="form-group" style="margin-bottom: 20px">
+                <label
+                  for="name"
+                  style="display: block; margin-bottom: 8px; font-weight: 500"
+                >
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Enter your full name"
+                  autocomplete="name"
+                  aria-describedby="nameError"
+                  required
+                  aria-invalid="false"
+                  style="
+                    width: 100%;
+                    padding: 12px;
+                    border: 1px solid #e2e8f0;
+                    border-radius: 6px;
+                  "
+                />
+                <small
+                  id="nameError"
+                  class="error-message"
+                  aria-live="polite"
+                ></small>
+              </div>
+
+              <!-- Email -->
+              <div class="form-group" style="margin-bottom: 20px">
+                <label
+                  for="email"
+                  style="display: block; margin-bottom: 8px; font-weight: 500"
+                >
+                  Email Address
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                  aria-describedby="emailError"
+                  required
+                  aria-invalid="false"
+                  style="
+                    width: 100%;
+                    padding: 12px;
+                    border: 1px solid #e2e8f0;
+                    border-radius: 6px;
+                  "
+                />
+                <small
+                  id="emailError"
+                  class="error-message"
+                  aria-live="polite"
+                ></small>
+              </div>
+
+              <!-- Subject -->
+              <div class="form-group" style="margin-bottom: 20px">
+                <label
+                  for="subject"
+                  style="display: block; margin-bottom: 8px; font-weight: 500"
+                >
+                  Subject
+                </label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="What would you like to discuss?"
+                  aria-describedby="subjectError"
+                  required
+                  aria-invalid="false"
+                  style="
+                    width: 100%;
+                    padding: 12px;
+                    border: 1px solid #e2e8f0;
+                    border-radius: 6px;
+                  "
+                />
+                <small
+                  id="subjectError"
+                  class="error-message"
+                  aria-live="polite"
+                ></small>
+              </div>
+
+              <!-- Message -->
+              <div class="form-group" style="margin-bottom: 20px">
+                <label
+                  for="message"
+                  style="display: block; margin-bottom: 8px; font-weight: 500"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="6"
+                  placeholder="Write your message..."
+                  aria-describedby="messageError"
+                  required
+                  aria-invalid="false"
+                  style="
+                    width: 100%;
+                    padding: 12px;
+                    border: 1px solid #e2e8f0;
+                    border-radius: 6px;
+                    resize: vertical;
+                  "
+                ></textarea>
+                <small
+                  id="messageError"
+                  class="error-message"
+                  aria-live="polite"
+                ></small>
+              </div>
+
+              <!-- Form feedback -->
+              <div id="formStatus" class="form-status" aria-live="polite"></div>
+
+              <!-- Submit -->
+              <button
+                type="submit"
+                class="submit-button primary-button"
+                style="margin-top: 10px"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================
+             VISION
+        ====================================== -->
+      <section
+        id="vision"
+        class="vision-section"
+        aria-labelledby="vision-heading"
+      >
+        <div class="container">
+          <p class="section-label" aria-hidden="true">THE DEVFORGE VISION</p>
+
+          <h2 id="vision-heading">Build. Learn. Improve.</h2>
+
+          <p>
+            Every project is an opportunity to learn something new. DevForge is
+            designed to grow alongside the developer building it.
+          </p>
+
+          <p>
+            What starts as a simple HTML page can evolve into a complete
+            interactive web application.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <p>
+          <small>
+            &copy; 2026 DevForge. Built for learning and innovation.
+          </small>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
