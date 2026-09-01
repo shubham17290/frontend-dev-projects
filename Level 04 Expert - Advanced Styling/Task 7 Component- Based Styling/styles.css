@@ -1,0 +1,459 @@
+/* =========================================================
+   DEVFORGE — TASK 07 & 08
+   Bootstrap Styling & SCSS Preprocessing
+   Improved & Refactored
+========================================================= */
+
+/* =========================================================
+   SCSS VARIABLES & MIXINS
+========================================================= */
+$transition-base: 0.25s ease;
+$border-radius-sm: 6px;
+$border-radius-lg: 12px;
+
+@mixin flex-center {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin hover-lift($y: -5px, $shadow: 0 15px 30px rgba(15, 23, 42, 0.08)) {
+  transition: transform $transition-base, box-shadow $transition-base;
+  &:hover {
+    transform: translateY($y);
+    box-shadow: $shadow;
+  }
+}
+
+/* =========================================================
+   CSS CUSTOM PROPERTIES (Run-time for JS Theming)
+   Expanded & Organised
+========================================================= */
+:root {
+  /* Colors – Base */
+  --devforge-dark: #0f172a;
+  --devforge-darker: #020617;
+  --devforge-primary: #0284c7;
+  --devforge-primary-dark: #0369a1;
+  --devforge-surface: #f8fafc;
+  --devforge-border: #e2e8f0;
+  --devforge-text: #1e293b;
+  --devforge-muted: #64748b;
+
+  /* Colors – Accents & States */
+  --devforge-hero-bg: #e0f2fe;        // was hardcoded
+  --devforge-icon-bg: #e0f2fe;        // used in multiple places
+  --devforge-success: #16a34a;
+  --devforge-danger: #dc2626;
+  --devforge-focus-ring: rgba(2, 132, 199, 0.12);
+
+  /* Shadows */
+  --devforge-shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.05);
+  --devforge-shadow-md: 0 15px 30px rgba(15, 23, 42, 0.08);
+  --devforge-shadow-lg: 0 15px 35px rgba(15, 23, 42, 0.25);
+
+  /* Typography */
+  --devforge-font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --devforge-font-mono: "Courier New", monospace;
+
+  /* Layout */
+  --devforge-navbar-height: 76px;
+  --devforge-section-padding: 90px;
+  --devforge-section-padding-mobile: 65px;
+}
+
+/* Dark Theme Overrides (optional)
+   Add class="dark-theme" to <html> or <body> */
+.dark-theme {
+  --devforge-dark: #0f172a;
+  --devforge-darker: #020617;
+  --devforge-surface: #0f172a;
+  --devforge-border: #1e293b;
+  --devforge-text: #f1f5f9;
+  --devforge-muted: #94a3b8;
+  --devforge-hero-bg: #0f172a;
+  --devforge-icon-bg: #1e293b;
+  /* Adjust shadows for dark bg if needed */
+  --devforge-shadow-md: 0 15px 30px rgba(0, 0, 0, 0.3);
+  --devforge-shadow-lg: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================================
+   GLOBAL RESET & BASE
+========================================================= */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--devforge-navbar-height);
+}
+
+body {
+  margin: 0;
+  font-family: var(--devforge-font-sans);
+  color: var(--devforge-text);
+  background-color: var(--devforge-surface);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+img {
+  max-width: 100%;
+  height: auto; /* prevent distortion */
+  display: block;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================
+   NAVBAR COMPONENT
+========================================================= */
+.navbar {
+  min-height: var(--devforge-navbar-height);
+  background-color: var(--devforge-dark); /* no !important needed if specificity is right */
+  backdrop-filter: blur(12px);
+  /* Fallback for browsers without backdrop-filter */
+  @supports not (backdrop-filter: blur(12px)) {
+    background-color: rgba(15, 23, 42, 0.98);
+  }
+
+  &-brand {
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
+
+  .brand-mark {
+    @include flex-center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background-color: var(--devforge-primary);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .nav-link {
+    color: #cbd5e1;
+    font-size: 15px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &.active {
+      color: #fff;
+    }
+
+    /* Improve focus for keyboard navigation */
+    &:focus-visible {
+      outline: 2px solid var(--devforge-primary);
+      outline-offset: 2px;
+    }
+  }
+
+  .btn {
+    @media (max-width: 991.98px) {
+      margin-top: 10px;
+    }
+  }
+}
+
+/* =========================================================
+   HERO COMPONENT
+========================================================= */
+.hero-section {
+  min-height: 100vh;
+  padding-top: calc(var(--devforge-navbar-height) + 44px);
+  padding-bottom: 80px;
+  background-color: var(--devforge-hero-bg);
+  transition: background-color 0.4s ease;
+
+  @media (max-width: 991.98px) {
+    min-height: auto;
+  }
+  @media (max-width: 575.98px) {
+    padding-top: calc(var(--devforge-navbar-height) + 20px);
+  }
+}
+
+.hero-title {
+  color: var(--devforge-dark);
+  letter-spacing: -1.5px;
+
+  @media (max-width: 767.98px) {
+    font-size: 2.5rem;
+  }
+  @media (max-width: 575.98px) {
+    font-size: 2.2rem;
+  }
+}
+
+.hero-visual {
+  position: relative;
+
+  img {
+    width: 100%;
+    min-height: 400px;
+    object-fit: cover;
+    @media (max-width: 767.98px) {
+      min-height: 300px;
+    }
+  }
+
+  .floating-code-card {
+    position: absolute;
+    left: 25px;
+    bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 18px;
+    background-color: rgba(15, 23, 42, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: #fff;
+    font-family: var(--devforge-font-mono);
+    font-size: 14px;
+    box-shadow: var(--devforge-shadow-lg);
+
+    @media (max-width: 767.98px) {
+      left: 15px;
+      bottom: 15px;
+      font-size: 12px;
+      padding: 10px 15px;
+    }
+  }
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  strong {
+    color: var(--devforge-dark);
+    font-size: 18px;
+    @media (max-width: 575.98px) {
+      font-size: 16px;
+    }
+  }
+
+  span {
+    color: var(--devforge-muted);
+    font-size: 13px;
+    @media (max-width: 575.98px) {
+      font-size: 12px;
+    }
+  }
+}
+
+/* =========================================================
+   GENERAL SECTIONS & TYPOGRAPHY
+========================================================= */
+.section-padding {
+  padding-top: var(--devforge-section-padding);
+  padding-bottom: var(--devforge-section-padding);
+  @media (max-width: 767.98px) {
+    padding-top: var(--devforge-section-padding-mobile);
+    padding-bottom: var(--devforge-section-padding-mobile);
+  }
+}
+
+.section-label {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: var(--devforge-primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.section-title {
+  margin-bottom: 20px;
+  color: var(--devforge-dark);
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* =========================================================
+   CARDS & ICONS
+========================================================= */
+.feature-card {
+  background-color: #fff; /* or var(--devforge-surface) ? */
+  border: 1px solid var(--devforge-border); /* remove !important */
+  border-radius: $border-radius-lg;
+  @include hover-lift;
+
+  .feature-icon {
+    @include flex-center;
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    background-color: var(--devforge-icon-bg);
+    color: var(--devforge-primary);
+    font-size: 23px;
+  }
+}
+
+/* =========================================================
+   RESOURCES COMPONENT
+========================================================= */
+.resources-section {
+  background-color: var(--devforge-surface);
+}
+
+#apiStatus {
+  border: none;
+  border-left: 4px solid var(--devforge-primary);
+  border-radius: $border-radius-sm;
+}
+
+.resource-card {
+  height: 100%;
+  background-color: #fff;
+  border: 1px solid var(--devforge-border);
+  border-radius: 10px;
+  @include hover-lift;
+
+  .resource-number {
+    margin-bottom: 10px;
+    color: var(--devforge-primary);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+  }
+
+  h3 {
+    color: var(--devforge-dark);
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: capitalize;
+  }
+
+  p {
+    color: var(--devforge-muted);
+    font-size: 15px;
+  }
+}
+
+/* =========================================================
+   INTERACTION COMPONENT
+========================================================= */
+.interaction-section {
+  background-color: #f1f5f9; /* could be another variable */
+  #interactionMessage {
+    min-height: 24px;
+  }
+}
+
+/* =========================================================
+   CONTACT & FORM COMPONENT
+========================================================= */
+.contact-icon {
+  @include flex-center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background-color: var(--devforge-icon-bg);
+  color: var(--devforge-primary);
+}
+
+.form-card {
+  background-color: var(--devforge-surface);
+  border: 1px solid var(--devforge-border);
+  border-radius: $border-radius-lg;
+
+  .card-body {
+    @media (max-width: 575.98px) {
+      padding: 22px;
+    }
+  }
+}
+
+.form-control {
+  border-color: #cbd5e1; /* could be a variable */
+  &:focus {
+    border-color: var(--devforge-primary);
+    box-shadow: 0 0 0 0.25rem var(--devforge-focus-ring);
+  }
+  &.is-invalid {
+    border-color: var(--devforge-danger);
+  }
+  &.is-valid {
+    border-color: var(--devforge-success);
+  }
+}
+
+/* =========================================================
+   VISION & FOOTER
+========================================================= */
+.vision-section {
+  background-color: var(--devforge-dark);
+}
+
+.footer-section {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background-color: var(--devforge-darker);
+}
+
+/* =========================================================
+   BOOTSTRAP OVERRIDES (Using Bootstrap's CSS variables)
+========================================================= */
+.btn-primary {
+  --bs-btn-bg: var(--devforge-primary);
+  --bs-btn-border-color: var(--devforge-primary);
+  --bs-btn-hover-bg: var(--devforge-primary-dark);
+  --bs-btn-hover-border-color: var(--devforge-primary-dark);
+  --bs-btn-active-bg: var(--devforge-primary-dark);
+  --bs-btn-active-border-color: var(--devforge-primary-dark);
+  --bs-btn-focus-shadow-rgb: 2, 132, 199; /* match focus ring */
+  --bs-btn-disabled-bg: var(--devforge-primary);
+  --bs-btn-disabled-border-color: var(--devforge-primary);
+}
+
+/* =========================================================
+   STATE CLASSES
+========================================================= */
+.resource-loading {
+  grid-column: 1 / -1;
+  padding: 50px;
+  text-align: center;
+  color: var(--devforge-muted);
+}
+
+.resource-error {
+  width: 100%;
+}
+
+/* =========================================================
+   ADDITIONAL UTILITY IMPROVEMENTS
+========================================================= */
+/* Smooth focus outline for all interactive elements */
+:where(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid var(--devforge-primary);
+  outline-offset: 2px;
+}
+
+/* Better selection styling */
+::selection {
+  background-color: var(--devforge-primary);
+  color: #fff;
+}

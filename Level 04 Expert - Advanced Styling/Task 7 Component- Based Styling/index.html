@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="DevForge - A modern developer learning platform built with Bootstrap and JavaScript."
+    />
+    <meta name="theme-color" content="#0f172a" />
+
+    <title>DevForge | Developer Learning Platform</title>
+
+    <!-- BOOTSTRAP 5.3 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <!-- BOOTSTRAP ICONS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- DEVFORGE CUSTOM CSS (Prepared for Task 8 SCSS Compilation) -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Deferred JavaScript for performance -->
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Bootstrap's native skip-link utility for keyboard accessibility -->
+    <a
+      href="#main-content"
+      class="visually-hidden-focusable p-3 bg-primary text-white position-absolute z-3 top-0 start-50 translate-middle-x rounded-bottom"
+    >
+      Skip to main content
+    </a>
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================== -->
+    <header>
+      <nav
+        class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top border-bottom border-secondary"
+        aria-label="Main Navigation"
+      >
+        <div class="container">
+          <a
+            class="navbar-brand d-flex align-items-center gap-2"
+            href="#home"
+            aria-label="DevForge Home"
+          >
+            <span class="brand-mark text-info fw-bold"> &lt;/&gt; </span>
+            <span class="fw-bold tracking-wide"> DEVFORGE </span>
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavigation"
+            aria-controls="mainNavigation"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="mainNavigation">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#home">
+                  Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about"> About </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#resources"> Resources </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact"> Contact </a>
+              </li>
+              <li class="nav-item ms-lg-2 mt-3 mt-lg-0">
+                <a class="btn btn-primary btn-sm px-3 w-100" href="#contact">
+                  Get Started
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================== -->
+    <main id="main-content">
+      <!-- =====================================
+           HERO
+      ====================================== -->
+      <!-- Added padding-top to account for fixed navbar -->
+      <section
+        id="home"
+        class="hero-section d-flex align-items-center pt-5 mt-5"
+        aria-labelledby="hero-heading"
+      >
+        <div class="container py-5">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+              <span
+                class="badge text-bg-primary mb-3 px-3 py-2 fw-semibold tracking-wide"
+                aria-hidden="true"
+              >
+                DEVELOPER LEARNING PLATFORM
+              </span>
+
+              <h1 id="hero-heading" class="display-4 fw-bold hero-title">
+                Build your ideas.
+                <span class="d-block text-primary mt-2">
+                  Turn them into reality.
+                </span>
+              </h1>
+
+              <p class="lead text-secondary mt-4 mb-5">
+                DevForge is a learning-focused platform where developers explore
+                concepts, discover resources, and learn by building real
+                projects.
+              </p>
+
+              <div class="d-flex flex-wrap gap-3">
+                <a
+                  href="#resources"
+                  class="btn btn-primary btn-lg px-4 shadow-sm"
+                >
+                  Explore Resources
+                </a>
+                <button
+                  id="themeButton"
+                  type="button"
+                  class="btn btn-outline-primary btn-lg px-4"
+                >
+                  Change Background
+                </button>
+              </div>
+
+              <div class="row g-3 mt-5 border-top pt-4">
+                <div class="col-4">
+                  <div class="hero-stat">
+                    <strong class="d-block fs-4 text-dark">100+</strong>
+                    <span class="text-secondary small">Resources</span>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="hero-stat">
+                    <strong class="d-block fs-4 text-dark">API</strong>
+                    <span class="text-secondary small">Powered</span>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="hero-stat">
+                    <strong class="d-block fs-4 text-dark">100%</strong>
+                    <span class="text-secondary small">Responsive</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="hero-visual position-relative">
+                <img
+                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85"
+                  class="img-fluid rounded-4 shadow-lg"
+                  alt="Developer typing on a laptop displaying programming code"
+                  width="600"
+                  height="400"
+                  fetchpriority="high"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================
+           ABOUT
+      ====================================== -->
+      <section id="about" class="py-5 bg-white" aria-labelledby="about-heading">
+        <div class="container py-5">
+          <div class="row justify-content-center text-center mb-5">
+            <div class="col-lg-8">
+              <span
+                class="text-primary fw-bold small tracking-wide text-uppercase"
+                aria-hidden="true"
+              >
+                ABOUT DEVFORGE
+              </span>
+              <h2 id="about-heading" class="display-6 fw-bold mt-2 mb-4">
+                Learn by Building
+              </h2>
+              <p class="text-secondary fs-5">
+                DevForge is designed around practical development. Instead of
+                only reading about programming, developers can explore concepts
+                and turn knowledge into working projects.
+              </p>
+            </div>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm transition-hover">
+                <div class="card-body p-4 text-center">
+                  <div class="text-primary mb-3 fs-1">
+                    <i class="bi bi-code-slash"></i>
+                  </div>
+                  <h3 class="h4 fw-bold">Build</h3>
+                  <p class="text-secondary mb-0">
+                    Practice your development skills through real projects and
+                    practical challenges.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm transition-hover">
+                <div class="card-body p-4 text-center">
+                  <div class="text-primary mb-3 fs-1">
+                    <i class="bi bi-lightbulb"></i>
+                  </div>
+                  <h3 class="h4 fw-bold">Learn</h3>
+                  <p class="text-secondary mb-0">
+                    Understand modern web technologies by applying concepts
+                    instead of memorizing them.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="card h-100 border-0 shadow-sm transition-hover">
+                <div class="card-body p-4 text-center">
+                  <div class="text-primary mb-3 fs-1">
+                    <i class="bi bi-rocket-takeoff"></i>
+                  </div>
+                  <h3 class="h4 fw-bold">Improve</h3>
+                  <p class="text-secondary mb-0">
+                    Continuously upgrade your projects, skills, and development
+                    workflow.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================
+           API RESOURCES
+      ====================================== -->
+      <section
+        id="resources"
+        class="py-5 bg-light"
+        aria-labelledby="resources-heading"
+      >
+        <div class="container py-5">
+          <div class="row mb-4">
+            <div class="col-lg-8">
+              <span
+                class="text-primary fw-bold small tracking-wide text-uppercase"
+                aria-hidden="true"
+              >
+                API POWERED CONTENT
+              </span>
+              <h2 id="resources-heading" class="display-6 fw-bold mt-2">
+                Developer Resources
+              </h2>
+              <p class="text-secondary fs-5">
+                Resources are retrieved dynamically from a public API using
+                JavaScript.
+              </p>
+            </div>
+          </div>
+
+          <div
+            id="apiStatus"
+            class="alert alert-info d-flex align-items-center gap-2 border-0 shadow-sm"
+            role="status"
+            aria-live="polite"
+          >
+            <i class="bi bi-cloud-arrow-down fs-5"></i>
+            <span>Loading developer resources...</span>
+          </div>
+
+          <!-- Semantically upgraded to a list -->
+          <ul
+            id="resourceContainer"
+            class="row g-4 mt-2 list-unstyled"
+            role="list"
+          >
+            <!-- JavaScript inserts <li> cards here -->
+          </ul>
+
+          <div class="text-center mt-5">
+            <button
+              id="loadMoreButton"
+              type="button"
+              class="btn btn-primary btn-lg px-5 shadow-sm"
+              aria-controls="resourceContainer"
+            >
+              Load More Resources
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================
+           JAVASCRIPT INTERACTION
+      ====================================== -->
+      <section
+        id="interaction"
+        class="py-5 bg-white"
+        aria-labelledby="interaction-heading"
+      >
+        <div class="container py-5 text-center">
+          <span
+            class="text-primary fw-bold small tracking-wide text-uppercase"
+            aria-hidden="true"
+          >
+            JAVASCRIPT INTERACTION
+          </span>
+          <h2 id="interaction-heading" class="display-6 fw-bold mt-2">
+            Make the Web Interactive
+          </h2>
+          <p class="text-secondary fs-5 mb-5 max-w-600 mx-auto">
+            Change the page background using JavaScript.
+          </p>
+
+          <button
+            id="interactionButton"
+            type="button"
+            class="btn btn-primary btn-lg px-5 shadow-sm"
+            aria-controls="interactionMessage"
+          >
+            <i class="bi bi-palette me-2"></i>
+            Change Page Background
+          </button>
+
+          <p
+            id="interactionMessage"
+            class="text-primary fw-semibold mt-4 mb-0"
+            aria-live="polite"
+            style="min-height: 24px"
+          >
+            Ready for interaction.
+          </p>
+        </div>
+      </section>
+
+      <!-- =====================================
+           CONTACT / FORM
+      ====================================== -->
+      <section
+        id="contact"
+        class="py-5 bg-light"
+        aria-labelledby="contact-heading"
+      >
+        <div class="container py-5">
+          <div class="row g-5 align-items-start">
+            <div class="col-lg-5">
+              <span
+                class="text-primary fw-bold small tracking-wide text-uppercase"
+                aria-hidden="true"
+              >
+                GET IN TOUCH
+              </span>
+              <h2 id="contact-heading" class="display-6 fw-bold mt-2">
+                Let's Build Something
+              </h2>
+              <p class="text-secondary fs-5 mb-5">
+                Have an idea, question, or project in mind? Send us a message
+                and start the conversation.
+              </p>
+
+              <div class="d-flex gap-3 mb-4">
+                <div class="text-primary fs-3">
+                  <i class="bi bi-envelope"></i>
+                </div>
+                <div>
+                  <h3 class="h5 fw-bold mb-1">Email</h3>
+                  <address class="mb-0">
+                    <a
+                      href="mailto:hello@devforge.example"
+                      class="text-secondary text-decoration-none"
+                      >hello@devforge.example</a
+                    >
+                  </address>
+                </div>
+              </div>
+
+              <div class="d-flex gap-3">
+                <div class="text-primary fs-3">
+                  <i class="bi bi-chat-dots"></i>
+                </div>
+                <div>
+                  <h3 class="h5 fw-bold mb-1">Response</h3>
+                  <p class="text-secondary mb-0">We'll get back to you soon.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-7">
+              <div class="card border-0 shadow bg-white rounded-4">
+                <div class="card-body p-4 p-md-5">
+                  <form id="contactForm" novalidate>
+                    <div class="mb-4">
+                      <label for="name" class="form-label fw-semibold"
+                        >Full Name</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control form-control-lg bg-light border-0"
+                        id="name"
+                        name="name"
+                        placeholder="Enter your full name"
+                        autocomplete="name"
+                        aria-describedby="nameError"
+                        required
+                        aria-invalid="false"
+                      />
+                      <div
+                        id="nameError"
+                        class="invalid-feedback fw-medium"
+                        aria-live="polite"
+                      ></div>
+                    </div>
+
+                    <div class="mb-4">
+                      <label for="email" class="form-label fw-semibold"
+                        >Email Address</label
+                      >
+                      <input
+                        type="email"
+                        class="form-control form-control-lg bg-light border-0"
+                        id="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        aria-describedby="emailError"
+                        required
+                        aria-invalid="false"
+                      />
+                      <div
+                        id="emailError"
+                        class="invalid-feedback fw-medium"
+                        aria-live="polite"
+                      ></div>
+                    </div>
+
+                    <div class="mb-4">
+                      <label for="subject" class="form-label fw-semibold"
+                        >Subject</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control form-control-lg bg-light border-0"
+                        id="subject"
+                        name="subject"
+                        placeholder="What would you like to discuss?"
+                        aria-describedby="subjectError"
+                        required
+                        aria-invalid="false"
+                      />
+                      <div
+                        id="subjectError"
+                        class="invalid-feedback fw-medium"
+                        aria-live="polite"
+                      ></div>
+                    </div>
+
+                    <div class="mb-4">
+                      <label for="message" class="form-label fw-semibold"
+                        >Message</label
+                      >
+                      <textarea
+                        id="message"
+                        name="message"
+                        class="form-control form-control-lg bg-light border-0"
+                        rows="5"
+                        placeholder="Write your message..."
+                        aria-describedby="messageError"
+                        required
+                        aria-invalid="false"
+                      ></textarea>
+                      <div
+                        id="messageError"
+                        class="invalid-feedback fw-medium"
+                        aria-live="polite"
+                      ></div>
+                    </div>
+
+                    <div
+                      id="formStatus"
+                      class="alert d-none mb-4"
+                      role="alert"
+                      aria-live="polite"
+                    ></div>
+
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-lg w-100 shadow-sm"
+                    >
+                      <i class="bi bi-send me-2"></i> Send Message
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================
+           VISION
+      ====================================== -->
+      <section
+        id="vision"
+        class="py-5 bg-dark text-white"
+        aria-labelledby="vision-heading"
+      >
+        <div class="container py-5">
+          <div class="row">
+            <div class="col-lg-8">
+              <span
+                class="text-info fw-bold small tracking-wide text-uppercase"
+                aria-hidden="true"
+              >
+                THE DEVFORGE VISION
+              </span>
+              <h2 id="vision-heading" class="display-5 fw-bold mt-2">
+                Build. Learn. Improve.
+              </h2>
+              <p class="text-white-50 fs-5 mt-4 mb-0">
+                Every project is an opportunity to learn something new. DevForge
+                is designed to grow alongside the developer building it. What
+                starts as a simple HTML page can evolve into a complete
+                interactive web application.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+    <footer class="py-4 bg-dark border-top border-secondary">
+      <div class="container">
+        <div
+          class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3"
+        >
+          <p class="mb-0 text-white-50 small">
+            &copy; 2026 DevForge. Built for learning and innovation.
+          </p>
+          <a href="#home" class="btn btn-outline-secondary btn-sm text-white">
+            Back to top <i class="bi bi-arrow-up ms-1"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- BOOTSTRAP JAVASCRIPT -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
